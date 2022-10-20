@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "599233326090",
+    "project_id": "today-s-schoolmeal",
+    "storage_bucket": "today-s-schoolmeal.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:599233326090:android:d64d1413baac6d68a0c3f3",
+        "android_client_info": {
+          "package_name": "com.example.todaysschoolmeal"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "599233326090-hcm9nhb8jsn960cfr31isc21mc11t1t8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCi6Temh3-YYHrCBOXPBbim1YOzkrqBFuo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "599233326090-hcm9nhb8jsn960cfr31isc21mc11t1t8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
