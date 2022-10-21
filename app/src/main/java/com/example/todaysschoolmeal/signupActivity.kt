@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
+import android.widget.TextView
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
@@ -25,6 +26,10 @@ class signupActivity : AppCompatActivity() {
             Toast.makeText(this, "성공!", Toast.LENGTH_SHORT).show()
             val loginintent = Intent(this,MainActivity::class.java)
             startActivity(loginintent)
+        }
+        findViewById<TextView>(R.id.school).setOnClickListener {
+            val schoolintent = Intent(this,schoolsearchActivity::class.java)
+            startActivity(schoolintent)
         }
     }
     fun sigininAndSignup(){

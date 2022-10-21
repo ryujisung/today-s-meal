@@ -21,10 +21,10 @@
         android:id="@+id/vec"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_group_1"
+        android:src="@drawable/user"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="@id/rec"
-        android:layout_marginStart="18dp"
+        android:layout_marginStart="10dp"
         android:layout_marginTop="320dp"
         />
 
@@ -34,7 +34,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="300dp"
-        android:src="@drawable/rectangle"
+        android:src="@drawable/rectangle1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -44,7 +44,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="400dp"
-        android:src="@drawable/rectangle"
+        android:src="@drawable/rectangle1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -110,7 +110,7 @@
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_group_2"
+        android:src="@drawable/lock"
         app:layout_constraintStart_toStartOf="@id/rec2"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="417dp"

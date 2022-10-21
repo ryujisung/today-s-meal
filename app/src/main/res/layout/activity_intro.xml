@@ -7,13 +7,22 @@
     tools:context=".IntroActivity">
     <ImageView
         android:id="@+id/introlImg"
-        android:layout_width="240dp"
-        android:layout_height="420dp"
-        android:src="@drawable/ic_moa"
+        android:layout_width="231dp"
+        android:layout_height="231dp"
+        android:src="@drawable/introimg"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        />
+    <ImageView
+        android:layout_width="194dp"
+        android:layout_height="48dp"
+        android:src="@drawable/todaymeal"
+        android:layout_margin="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/introlImg"
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -6,6 +6,15 @@
     android:layout_height="match_parent"
     tools:context=".haveaccountActivity">
 
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/account_topimage"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="70dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
     <Button
         android:id="@+id/log_btn"
         android:layout_width="283dp"
@@ -24,7 +33,7 @@
         android:id="@+id/tv_signup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_notmember"
+        android:src="@drawable/notmember"
         android:layout_marginStart="243dp"
         android:layout_marginEnd="34dp"
         android:layout_marginBottom="19dp"
