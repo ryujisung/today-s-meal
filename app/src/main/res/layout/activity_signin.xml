@@ -16,6 +16,28 @@
         android:layout_marginStart="30dp"
         android:layout_marginTop="67dp"
         />
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/todaymeal"
+        android:src="@drawable/todaymeal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="138sp"
+
+        />
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:src="@drawable/welcome"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/todaymeal"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="15sp"
+
+        />
 
     <ImageView
         android:id="@+id/vec"
@@ -67,7 +89,9 @@
         android:layout_height="50dp"
         android:layout_marginTop="570dp"
         android:text="로그인"
-        android:backgroundTint="#4AF40E"
+        android:textStyle="bold"
+        android:background="@drawable/rectangle2"
+        android:backgroundTint="#3891FF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
