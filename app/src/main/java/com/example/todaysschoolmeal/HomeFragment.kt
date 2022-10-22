@@ -1,12 +1,27 @@
 package com.example.todaysschoolmeal
 
+import android.annotation.SuppressLint
+import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
+import androidx.annotation.RequiresApi
+import com.squareup.moshi.Moshi
+import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
+import retrofit2.Retrofit
+import retrofit2.converter.moshi.MoshiConverterFactory
+import java.nio.file.Files.list
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
 
-// TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
@@ -17,43 +32,51 @@ private const val ARG_PARAM2 = "param2"
  * create an instance of this fragment.
  */
 class HomeFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
-
+    @RequiresApi(Build.VERSION_CODES.O)
+    @SuppressLint("MissingInflatedId")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false)
-    }
+        val viewview = inflater.inflate(R.layout.fragment_home, container, false)
+        val moshi = Moshi.Builder()
+            .add(KotlinJsonAdapterFactory())
+            .build()
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment HomeFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            HomeFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+
+
+
+
+        val retrofit = Retrofit.Builder()
+            .addConverterFactory(MoshiConverterFactory.create(moshi))
+            .baseUrl("https://schoolmenukr.ml/")
+            .build()
+
+        val mealApiService = retrofit.create(MealApiService::class.java)
+        val monthlist : List<Int> = listOf(31,28,31,30,31,30,31,31,30,31,30,31)
+        CoroutineScope(Dispatchers.IO).launch{
+            val currenttime = LocalDateTime.now();
+            val date = currenttime.dayOfMonth.toInt()
+            val month = currenttime.dayOfMonth.toInt()
+            val result = mealApiService.getMeal("B100000658")
+
+            withContext(Dispatchers.Main){
+                viewview.findViewById<TextView>(R.id.firstmeal).text = "${month}월 ${date}일의 급식"
+                viewview.findViewById<TextView>(R.id.firstmeal_menu).text = result.menu[date-1].lunch.toString()
+                if(monthlist[month-1]<=date+1){
+                    viewview.findViewById<TextView>(R.id.secondmeal).text = "${currenttime.plusDays(1).month}월 ${currenttime.plusDays(1).dayOfMonth}일의 급식"
+                    viewview.findViewById<TextView>(R.id.secondmeal_menu).text = result.menu[date].lunch.toString()
+                }
+                if(monthlist[month-1]<=date+2) {
+                    viewview.findViewById<TextView>(R.id.thirdmeal).text =
+                        "${currenttime.plusDays(2).month}월 ${currenttime.plusDays(2).dayOfMonth}일의 급식"
+                    viewview.findViewById<TextView>(R.id.thirdmeal_menu).text =
+                        result.menu[date + 1].lunch.toString()
                 }
             }
+        }
+        return viewview
     }
+
 }

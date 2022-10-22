@@ -23,7 +23,7 @@ class IntroActivity : AppCompatActivity() {
                 var intent = Intent(this, haveaccountActivity::class.java)
                 startActivity(intent)
             }
-        },3000)
+        },1000)
     }
 
     override fun onPause() {

@@ -45,11 +45,11 @@ class schoolsearchActivity : AppCompatActivity() {
                 val schoolapiservice = retrofit.create(schoolsearchService::class.java)
 
                 CoroutineScope(Dispatchers.IO).launch{
-                    val result = schoolapiservice.ApiService()
+                    val result = schoolapiservice.ApiService(userhighschool.toString())
                     Log.d("apiResult", result.toString())
-                    val menu : List<School> = result.schools
 
                     val SchoolData = mutableListOf<School>(
+
                         School(
                             name = result.schools[0].name.toString(),
                             code = result.schools[0].code.toString(),
@@ -63,63 +63,7 @@ class schoolsearchActivity : AppCompatActivity() {
                             office = result.schools[1].office.toString(),
                             level = result.schools[1].level.toInt(),
                             address = result.schools[1].address.toString(),
-                        ),
-                        School(
-                            name = result.schools[2].name.toString(),
-                            code = result.schools[2].code.toString(),
-                            office = result.schools[2].office.toString(),
-                            level = result.schools[2].level.toInt(),
-                            address = result.schools[2].address.toString(),
-                        ),
-                        School(
-                            name = result.schools[3].name.toString(),
-                            code = result.schools[3].code.toString(),
-                            office = result.schools[3].office.toString(),
-                            level = result.schools[3].level.toInt(),
-                            address = result.schools[3].address.toString(),
-                        ),
-                        School(
-                            name = result.schools[4].name.toString(),
-                            code = result.schools[4].code.toString(),
-                            office = result.schools[4].office.toString(),
-                            level = result.schools[4].level.toInt(),
-                            address = result.schools[4].address.toString(),
-                        ),
-                        School(
-                            name = result.schools[5].name.toString(),
-                            code = result.schools[5].code.toString(),
-                            office = result.schools[5].office.toString(),
-                            level = result.schools[5].level.toInt(),
-                            address = result.schools[5].address.toString(),
-                        ),
-                        School(
-                            name = result.schools[6].name.toString(),
-                            code = result.schools[6].code.toString(),
-                            office = result.schools[6].office.toString(),
-                            level = result.schools[6].level.toInt(),
-                            address = result.schools[6].address.toString(),
-                        ),
-                        School(
-                            name = result.schools[7].name.toString(),
-                            code = result.schools[7].code.toString(),
-                            office = result.schools[7].office.toString(),
-                            level = result.schools[7].level.toInt(),
-                            address = result.schools[7].address.toString(),
-                        ),
-                        School(
-                            name = result.schools[8].name.toString(),
-                            code = result.schools[8].code.toString(),
-                            office = result.schools[8].office.toString(),
-                            level = result.schools[8].level.toInt(),
-                            address = result.schools[8].address.toString(),
-                        ),
-                        School(
-                            name = result.schools[9].name.toString(),
-                            code = result.schools[9].code.toString(),
-                            office = result.schools[9].office.toString(),
-                            level = result.schools[9].level.toInt(),
-                            address = result.schools[9].address.toString(),
-                        ),
+                        )
                     )
                     findViewById<RecyclerView>(R.id.list_main).apply {
                         adapter = SchoolAdapter(SchoolData)
