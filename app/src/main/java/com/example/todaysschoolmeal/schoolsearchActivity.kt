@@ -47,26 +47,18 @@ class schoolsearchActivity : AppCompatActivity() {
                 CoroutineScope(Dispatchers.IO).launch{
                     val result = schoolapiservice.ApiService(userhighschool.toString())
                     Log.d("apiResult", result.toString())
-
+                    val a =0;
                     val SchoolData = mutableListOf<School>(
-
                         School(
-                            name = result.schools[0].name.toString(),
+                            name = result.schools[a].name.toString(),
                             code = result.schools[0].code.toString(),
                             office = result.schools[0].office.toString(),
                             level = result.schools[0].level.toInt(),
                             address = result.schools[0].address.toString(),
                         ),
-                        School(
-                            name = result.schools[1].name.toString(),
-                            code = result.schools[1].code.toString(),
-                            office = result.schools[1].office.toString(),
-                            level = result.schools[1].level.toInt(),
-                            address = result.schools[1].address.toString(),
-                        )
                     )
                     findViewById<RecyclerView>(R.id.list_main).apply {
-                        adapter = SchoolAdapter(SchoolData)
+                        adapter = SchoolAdapter(result.schools)
                         layoutManager = LinearLayoutManager(this@schoolsearchActivity)
                     }
                 }

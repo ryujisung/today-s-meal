@@ -40,11 +40,12 @@
         android:id="@+id/rec"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="310dp"
+        android:layout_marginTop="260dp"
         android:src="@drawable/rectangle1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginBottom="100sp"/>
 
     <EditText
         android:id="@+id/school"
@@ -73,44 +74,13 @@
         android:id="@+id/school_3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="10sp"
+        android:layout_marginBottom="20sp"
         android:src="@drawable/rectangle1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toTopOf="@+id/rec" />
 
-    <EditText
-        android:id="@+id/nickname"
-        android:layout_width="250dp"
-        android:layout_height="45dp"
-        app:layout_constraintStart_toStartOf="@id/rec"
-        app:layout_constraintEnd_toEndOf="@id/rec"
-        app:layout_constraintTop_toTopOf="@id/nickname_3"
-        android:hint="닉네임"
-        android:background="@android:color/transparent"
-        android:layout_marginTop="10sp"
-        />
-    <ImageView
-        android:id="@+id/nickname_2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/nickname"
-        app:layout_constraintTop_toTopOf="@id/nickname_3"
-        app:layout_constraintStart_toStartOf="@id/nickname_3"
-        android:layout_marginStart="10sp"
-        android:layout_marginTop="15sp"
-        />
 
-
-    <ImageView
-        android:id="@+id/nickname_3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="10sp"
-        android:src="@drawable/rectangle1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/school_3" />
 
     <EditText
         android:id="@+id/pn"
@@ -139,7 +109,7 @@
         android:id="@+id/rec2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10sp"
+        android:layout_marginTop="20sp"
         android:src="@drawable/rectangle1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -172,7 +142,7 @@
         android:id="@+id/rec3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10sp"
+        android:layout_marginTop="20sp"
         android:src="@drawable/rectangle1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
