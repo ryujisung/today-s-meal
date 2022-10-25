@@ -6,6 +6,6 @@ import retrofit2.http.Path
 
 
 interface schoolsearchService {
-    @GET("/api/{school}")
-    suspend fun ApiService(@Path("school") school : String): schoolApiResult
+    @GET("api/school/{school}")
+    suspend fun ApiService(@Path("school") school : String ): schoolApiResult
 }

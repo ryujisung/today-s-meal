@@ -29,8 +29,11 @@ class schoolsearchActivity : AppCompatActivity() {
         setContentView(R.layout.activity_schoolsearch)
 
 
-        findViewById<TextView>(R.id.school).addTextChangedListener(object : TextWatcher{
+        findViewById<TextView>(R.id.school).addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(p0: Editable?) {
+                if(p0.toString().isNullOrBlank()){
+                    return
+                }
                 val userhighschool: EditText = findViewById(R.id.school)
 
                 val moshi = Moshi.Builder()
@@ -42,25 +45,26 @@ class schoolsearchActivity : AppCompatActivity() {
                     .baseUrl("https://jrady721.cafe24.com/")
                     .build()
 
-                val schoolapiservice = retrofit.create(schoolsearchService::class.java)
 
-                CoroutineScope(Dispatchers.IO).launch{
-                    val result = schoolapiservice.ApiService(userhighschool.toString())
-                    Log.d("apiResult", result.toString())
-                    val a =0;
+                CoroutineScope(Dispatchers.IO).launch {
+                    val schoolapiservice = retrofit.create(schoolsearchService::class.java)
+                    val result = schoolapiservice.ApiService(userhighschool.text.toString())
                     val SchoolData = mutableListOf<School>(
                         School(
-                            name = result.schools[a].name.toString(),
+                            name = result.schools[0].name.toString(),
                             code = result.schools[0].code.toString(),
                             office = result.schools[0].office.toString(),
                             level = result.schools[0].level.toInt(),
                             address = result.schools[0].address.toString(),
                         ),
                     )
-                    findViewById<RecyclerView>(R.id.list_main).apply {
-                        adapter = SchoolAdapter(result.schools)
-                        layoutManager = LinearLayoutManager(this@schoolsearchActivity)
+                    withContext(Dispatchers.Main) {
+                        findViewById<RecyclerView>(R.id.list_main).apply {
+                            adapter = SchoolAdapter(SchoolData)
+                            layoutManager = LinearLayoutManager(this@schoolsearchActivity)
+                        }
                     }
+
                 }
             }
 
