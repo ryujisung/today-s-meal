@@ -39,16 +39,7 @@
 
         />
 
-    <ImageView
-        android:id="@+id/vec"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/user"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="@id/rec"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="320dp"
-        />
+
 
 
     <ImageView
@@ -83,6 +74,17 @@
         app:layout_constraintEnd_toEndOf="@+id/rec"
         app:layout_constraintStart_toStartOf="@+id/rec"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/vec"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/user"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="@id/rec"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="320dp"
+        />
 
 
     <Button
